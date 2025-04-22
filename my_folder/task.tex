@@ -1,0 +1,103 @@
+%%%% Начало оформления заголовка - оставить без изменений !!! %%%%
+\input{my_folder/task_settings}	% настройки - начало 
+	
+				{%\normalfont %2020
+						\MakeUppercase{\SPbPU}}\\
+				\institute
+
+\par}\intervalS% завершает input
+
+				\noindent
+				\begin{minipage}{\linewidth}
+				\vspace{\mfloatsep} % интервал 	
+				\begin{tabularx}{\linewidth}{Xl}
+					&УТВЕРЖДАЮ      \\
+					&\HeadTitle     \\			
+					&\underline{\hspace*{0.1\textheight}} \Head     \\
+					&<<\underline{\hspace*{0.05\textheight}}>> \underline{\hspace*{0.1\textheight}} \approveYear г.  \\  
+				\end{tabularx}
+				\vspace{\mfloatsep} % интервал 	
+				\end{minipage}
+
+\intervalS{\centering\bfseries%
+
+				ЗАДАНИЕ\\
+				на выполнение %с 2020 года 
+				%по выполнению % до 2020 года
+				выпускной квалификационной работы
+
+
+\intervalS\normalfont%
+
+				студенту \uline{\AuthorFullDat{} гр.~\group}
+
+
+\par}\intervalS%
+%%%%
+%%%% Конец оформления заголовка  %%%%
+ 	
+	
+%add all literature
+\hphantom{
+	\cite{me_bachelor}
+	\cite{pbd}
+	\cite{xpbd}
+	}
+	
+\begin{enumerate}[1.]
+	\item Тема работы: {\expandafter \ulined \thesisTitle.}
+	%\item Тема работы (на английском языке): \uline{\thesisTitleEn.} % вероятно после 2021 года
+	\item Срок сдачи студентом законченной работы: \uline{\thesisDeadline.} 
+	\item Исходные данные по работе: %
+	\begin{itemize}
+		\item Cистема для вывода трѐхмерных сцен, реализованная при помощи набора программных модулей и библиотек DirectX12 на языке С++ \cite{me_bachelor}.
+		\item Инструментальные средства:
+		\begin{itemize}
+			\item языки программирования С++, Python
+			\item среда разработки Visual Studio 2022
+			\item программная библиотека для работы с видеокартой DirectX 12
+			\item система контроля версий git
+		\end{itemize}
+	\end{itemize}
+	\printbibliographyTask % печать списка источников % КОММЕНТИРУЕМ ЕСЛИ НЕ ИСПОЛЬЗУЕТСЯ
+	% В СЛУЧАЕ, ЕСЛИ НЕ ИСПОЛЬЗУЕТСЯ МОЖНО ТАКЖЕ ЗАЙТИ В setup.tex и закомментировать \vspace{-0.28\curtextsize}
+	\item Содержание работы (перечень подлежащих разработке вопросов):
+	\begin{enumerate}[label=\theenumi\arabic*.]
+		\item Введение. Обоснование актуальности
+		\item Постановка задачи
+		\item Обзор существующих решений 
+		\item Предлагаемое решение
+		\item Результаты и сравнительный анализ
+		\item Заключение 
+	\end{enumerate}
+	\item Дата выдачи задания: \uline{\thesisStartDate.}
+\end{enumerate}
+
+\intervalS%можно удалить пробел
+
+Руководитель ВКР \uline{\hspace*{0.1\textheight} \Supervisor}
+
+
+\intervalS%можно удалить пробел
+
+Консультант  \uline{\hspace*{0.1\textheight}\ConsultantExtra}
+
+
+\intervalS%можно удалить пробел
+
+Консультант  \uline{\hspace*{0.1\textheight}\ConsultantExtraTwo}
+
+
+\intervalS%можно удалить пробел
+
+%Консультант по нормоконтролю \uline{\hspace*{0.1\textheight} \ConsultantNorm}%ПОКА НЕ ТРЕБУЕТСЯ, Т.К. ОН У ВСЕХ ПО УМОЛЧАНИЮ
+
+Задание принял к исполнению \uline{\thesisStartDate}
+
+\intervalS%можно удалить пробел
+
+Студент \uline{\hspace*{0.1\textheight}  \Author}
+
+
+
+\input{my_folder/task_settings_restore}	% настройки - конец
