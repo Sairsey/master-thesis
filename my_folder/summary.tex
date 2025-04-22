@@ -26,19 +26,34 @@
 \formbytotal{myappendices}{приложен}{ие}{ия}{ий}%.  
 
 %\noindent
-{\MakeUppercase{Ключевые слова: \keywordsRu}.}\footnote{Всего \textbf{слов}: от 3 до 15. Всего \textbf{слов и словосочетаний}: от 3 до 5. Оформляются в именительном падеже множественного числа (или в единственном числе, если нет другой формы), оформленных по правилам русского языка. \textit{Внимание! Размещение сноски после точки является примером как запрещено оформлять сноски.}} % Ключевые слова из renames.tex
+{\MakeUppercase{Ключевые слова: \keywordsRu}.}%\footnote{Всего \textbf{слов}: от 3 до 15. Всего \textbf{слов и словосочетаний}: от 3 до 5. Оформляются в именительном падеже множественного числа (или в единственном числе, если нет другой формы), оформленных по правилам русского языка. \textit{Внимание! Размещение сноски после точки является примером как запрещено оформлять сноски.}} % Ключевые слова из renames.tex
 
-Тема выпускной квалификационной работы: <<\thesisTitle>>\footnote{Реферат \textbf{должен содержать}: предмет, тему, цель ВКР; метод или методологию проведения ВКР; результаты ВКР; область применения результатов ВКР; выводы.}.
+Тема выпускной квалификационной работы: <<\thesisTitle>>%\footnote{Реферат \textbf{должен содержать}: предмет, тему, цель ВКР; метод или методологию проведения ВКР; результаты ВКР; область применения результатов ВКР; выводы.}.
+
+%%
+%% Реферат ОТ 1000 ДО 1500 знаков на русский или английский текст
+%%
+%Реферат должен содержать:
+%- предмет, тему, цель ВКР;
+%- метод или методологию проведения ВКР:
+%- результаты ВКР:
+%- область применения результатов ВКР;
+%- выводы.
 
 
-\abstractRu\footnote{ОТ 1000 ДО 1500 печатных знаков (ГОСТ Р 7.0.99-2018 СИБИД) на русский или английский текст. Текст реферата повторён дважды на русском и английском языке для демонстрации подхода к нумерации страниц.} % Аннотация из renames.tex
+Данная работа посвящена разработке и реализации эвристического алгоритма для улучшения сходимости метода Extended Position Based Dynaimics(XPBD) в задаче симуляции ткани. Данный эвристический алгоритм призван стабилизировать результат получаемый в ходе работы метода XPBD в случае резких и сильных изменений положения частиц ткани.
 
-\abstractRu % УДАЛИТЬ. Повтор иллюстрации переноса текста на вторую страницу
+Для демонстрации разработанного алгоритма были созданы демонстрационные сцены, состоящие из различных трехмерных геометрических объектов, а также симулируемых тканей. Весь исходный код проекта написан на языке C++ с применением графической библиотеки DirectX 12. Средством для программирования шейдеров является язык HLSL.
+
+Наиболее значимым результатом является эвристический алгоритм, позволяющий избавиться от чрезмерных колебаний ткани, вызванных недостаточным количеством итераций алгоритма XPBD. В результате данных колебаний, поведение симулируемой ткани выглядит отлично от наблюдаемого в реальной жизни, и больше напоминает поведение резины. В ходе работы был реализован алгоритм XPBD выполняющийся на GPU, а также разработаны различные алгоритмы и методы, позволяющие ускорить работу алгоритма XPBD с учетом особенностей архитектуры GPU.
+
+Предложенный алгоритм может быть использован совместно с существующими системами симуляции тканей для более корректной визуализации в современных графических приложениях.
 
 
+%\abstractRu\footnote{ОТ 1000 ДО 1500 печатных знаков (ГОСТ Р 7.0.99-2018 СИБИД) на русский или английский текст. Текст реферата повторён дважды на русском и английском языке для демонстрации подхода к нумерации страниц.} % Аннотация из renames.tex
+\newpage
 
 \printTheAbstract % не удалять
-
 
 \total{mypages}~pages, 
 \total{myfigures}~figures, 
@@ -50,10 +65,14 @@
 	
 The subject of the graduate qualification work is <<\thesisTitleEn>>.
 	
-	
-\abstractEn % Аннотация из renames.tex
+This work is devoted to the development and implementation of a heuristic algorithm for improving the convergence of the Extended Position Based Dynamics (XPBD) method in the cloth simulation problem. This heuristic algorithm is designed to stabilize the result obtained during the XPBD method in the case of abrupt and strong changes in the position of cloth particles.
 
-\abstractEn % УДАЛИТЬ. Повтор для иллюстрации переноса текста на вторую страницу
+To demonstrate the developed algorithm, demo scenes were created consisting of various three-dimensional geometric objects, as well as simulated cloth. The entire source code of the project is written in C++ using the DirectX 12 graphics library. The shader programming language is HLSL.
+
+The most significant result is a heuristic algorithm that allows you to get rid of excessive cloth vibrations caused by an insufficient number of iterations of the XPBD algorithm. As a result of these vibrations, the behavior of the simulated cloth looks different from that observed in real life, and is more reminiscent of the behavior of rubber. During the work, the XPBD algorithm running on the GPU was implemented, and various algorithms and methods were developed to speed up the XPBD algorithm, taking into account the features of the GPU architecture.
+
+The proposed algorithm can be used together with existing tissue simulation systems for more correct visualization in modern graphics applications.	
+%\abstractEn % Аннотация из renames.tex
 	
 
 
