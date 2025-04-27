@@ -56,8 +56,8 @@
 				$p^*_i \leftarrow p_i(t) + v_i * \delta t $\;
 			}
 			
-			\For{solverIteration \textbf{times}  \label{step:pbd-solver-loop}}{
-				$p^*_1, ..., p^*_N \leftarrow projectConstraints(C_1, ..., C_M, n_1, ..., n_M, k_1, ..., k_M, p^*_1, ..., p^*_N, im_1, ..., im_N)$;
+			\For{$\forall k \in 1..solverIteration$  \label{step:pbd-solver-loop}}{
+				$p^*_1, ..., p^*_N \leftarrow projectConstraints(p^*_1, ..., p^*_N)$;
 			}
 			
 			\For {$\forall p_i $\label{step:pbd-solver-save}}{
@@ -78,14 +78,21 @@
 	\begin{equation}
 		C(p^* + \delta p^*) \approx C(p^*) + \delta p^* * \nabla_{p^*} C(p^*) = 0
 	\end{equation}
+	Тогда получается
+	\begin{equation} \label{eq:delta_p_scaleFactor}
+		scaleFactor = -\frac{C(p^*)}{|\nabla C(p^*)|^2}
+	\end{equation}
 	\begin{equation} \label{eq:delta_p_pbd}
-		\delta p^* = -\frac{C(p^*)}{|\nabla C(p^*)|^2} * \nabla C(p^*)
+		\delta p^*_i = scaleFactor* \nabla_{p^*_i} C(p^*)
 	\end{equation}
 	
-	Таким образом, используя выражение \ref{eq:delta_p_pbd} мы для каждой затронутой частицы можем найти смещение необходимое для удовлетворения данного ограничения, но только в случае если массы частиц равны между собой. Иначе требуется воспользоваться \ref{eq:delta_p_pbd_2}
+	Таким образом, используя выражение \ref{eq:delta_p_pbd} мы для каждой затронутой частицы можем найти смещение необходимое для удовлетворения данного ограничения, но только в случае если массы частиц равны между собой. Иначе требуется воспользоваться \ref{eq:delta_p_scaleFactor_2}
 	
+	\begin{equation} \label{eq:delta_p_scaleFactor_2}
+		scaleFactor = -\frac{1}{\sum_l im_l} \frac{C(p^*)}{|\nabla C(p^*)|^2}
+	\end{equation}
 	\begin{equation} \label{eq:delta_p_pbd_2}
-		\delta p^*_i = - \frac{im_i}{\sum_l im_l} \frac{C(p^*)}{|\nabla C(p^*)|^2} * \nabla_{p^*_i} C(p^*)
+		\delta p^*_i = im_i * scaleFactor * \nabla_{p^*_i} C(p^*)
 	\end{equation}
 
 	Стоит отметить, что при значении $im_i = 0$ (соответствующее бесконечной массе) не только $\delta p^*_i = 0$, но и внешние силы при интеграции методом Стёрмера-Верле (\firef{alg:PositionBasedDynamics}) не будут влиять на положение вершины. Это означает что таким образом можно \say{закреплять} такие вершины в пространстве, или \say{прикреплять} к другим симулируемым физическим телам.
@@ -121,7 +128,7 @@
 		\SetKwProg{myalg}{Algorithm}{}{} %write in 2nd agrument <<Algorithm>>, <<Procedure>> etc
 		\nonl\myalg{projectConstraintsJacobi}{
 			\KwInput{
-				шаг $\alpha$,
+				шаг $\gamma$,
 				ограничения,
 				предсказанные положения частиц $p^*_i$
 			}
@@ -136,7 +143,7 @@
 			}
 			
 			\For {$\forall p^*_i $}{
-				$p^*_i \leftarrow p^*_i + \alpha * offsets_i$;
+				$p^*_i \leftarrow p^*_i + \gamma * offsets_i$;
 			}
 		}
 		\caption{Псевдокод алгоритма projectConstraints использующего метод Якоби}\label{alg:projectConstraintsJacobi}
@@ -186,7 +193,7 @@
 		\label{fig:jacobi_vs_gauss}  
 	\end{figure}
 	
-	Помимо мысленных экпериментов, авторами были поставлены и численные эксперименты с использованием компьютера. По их словам, первый алгоритм всё ещё сходится медленнее, требует дополнительный объем памяти, требует выбора константы $\alpha$, но достаточно просто может быть распараллен. С другой стороны, алгоритм основанный на методе Гаусса-Зейделя сходится быстрее, не требует дополнительного объема памяти, но результат будет зависеть от порядка обхода и в зависимости от выбранного порядка обхода может быть или не быть распараллелен.
+	Помимо мысленных экпериментов, авторами были поставлены и численные эксперименты с использованием компьютера. По их словам, первый алгоритм всё ещё сходится медленнее, требует дополнительный объем памяти, требует выбора константы $\gamma$, но достаточно просто может быть распараллен. С другой стороны, алгоритм основанный на методе Гаусса-Зейделя сходится быстрее, не требует дополнительного объема памяти, но результат будет зависеть от порядка обхода и в зависимости от выбранного порядка обхода может быть или не быть распараллелен.
 
 %% Вспомогательные команды - Additional commands
 %

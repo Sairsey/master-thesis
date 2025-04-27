@@ -1,4 +1,4 @@
-\section{Различные улучшения алгоритма Position Based Dynamics} \label{ch2:pbr-improvments} %название по-русски
+\section{Различные улучшения алгоритма Position Based Dynamics} \label{ch2:pbd-improvments} %название по-русски
 	Алгоритм, описанный в предыдущей главе, позволяет симулировать поведение мягких тел, однако не может быть применен на практике. Поэтому. в статье \cite{pbd}, помимо основной идеи алгоритма, были предложены различные улучшения.
 	
 	Во-первых, симулируемое таким образом мягкое тело не взаимодействует с дургими физическими телами. Визуально это будет выглядеть как то, что оно будет \say{проходить сквозь} другие тела. Для того чтобы это обойти, используются алгоритмы обнаружения столкновений. В статье \cite{pbd} для решения этой проблемы предлагается динамически создавать новые ограничения с параметрами:
@@ -49,8 +49,8 @@
 				$generateCollisionConstraints(p_i -> p^*_i)$;
 			}
 			
-			\For{solverIteration \textbf{times}  \label{step:pbd-solver-loop}}{
-				$p^*_1, ..., p^*_N \leftarrow projectConstraints(C_1, ..., C_M, n_1, ..., n_M, k_1, ..., k_M, p^*_1, ..., p^*_N, im_1, ..., im_N)$;
+			\For{$\forall k \in 1..solverIteration$  \label{step:pbd-solver-loop}}{
+				$p^*_1, ..., p^*_N \leftarrow projectConstraints(p^*_1, ..., p^*_N)$;
 			}
 			
 			\For {$\forall p_i $\label{step:pbd-solver-save}}{
