@@ -46,7 +46,7 @@
 	\right]
 \end{equation}
 	Далее, авторы статьи вносят две аппроксимации. Первая - принимается что $\frac{\delta g}{\delta x} = M$. Это исключает геометрическую жесткость и вносит погрешность порядка $O(\delta t^2)$ (данный метод тогда можно рассматривать как квази-Ньютоновский). Вторая - $g(x_i, \lambda_i) = 0$. Хотя это верно только для первой итерации метода Ньютона (при $x_0 = 2x^n + x^{n-1}, \lambda_0 = 0$), если $\nabla \textbf{C}^T$ будет изменяться медленно, то значение $g(x_i, \lambda_i)$ будет отставаться малым, и приравняется нулю, когда $\nabla \textbf{C}^T$ станет константным. Если внести эти две аппроксимации, то система \ref{eq:xpbd-system-hard} будет иметь вид 
-\begin{equation} \label{eq:xbd-system-hard}
+\begin{equation} \label{eq:xpbd-system-hard}
 	\left[
 	\begin{array}{cc}
 		\textbf{M} & -\nabla \textbf{C}^T(x_i)\\
@@ -65,15 +65,15 @@
 	\right]
 \end{equation}
 	Взяв дополнение Шура мы можем получить следующую систему относительно $\delta \lambda$
-\begin{equation} \label{eq:xbd-delta-lambda}
+\begin{equation} \label{eq:xpbd-delta-lambda}
 	\left[\nabla \textbf{C}(x_i) \textbf{M}^{-1} \nabla \textbf{C}^T(x_i) + \frac{\alpha}{\delta t^2}\right]\delta \lambda = -\textbf{C}(x_i) - \frac{\alpha}{\delta t^2}\lambda_i
 \end{equation}	
 	А значение $\delta x$ может быть высчитано используя следующее выражение.
-\begin{equation} \label{eq:xbd-delta-x}
+\begin{equation} \label{eq:xpbd-delta-x}
 	 \delta x = \textbf{M}^{-1} \nabla \textbf{C}^T(x_i) \delta \lambda
 \end{equation}	
-	Заметим, что выражение \ref{eq:xbd-delta-x} совпадает с выражением \ref{eq:delta_p_pbd_2} описанным в главе \ref{ch2:pbd}, если принять $\delta \lambda$ равной $scaleFactor$. Выпишем $\delta \lambda$ в том же стиле, в котором представляется $scaleFactor$ в \ref{eq:delta_p_scaleFactor_2}.
-\begin{equation} \label{eq:xbd-delta-lambda}
+	Заметим, что выражение \ref{eq:xpbd-delta-x} совпадает с выражением \ref{eq:delta_p_pbd_2} описанным в главе \ref{ch2:pbd}, если принять $\delta \lambda$ равной $scaleFactor$. Выпишем $\delta \lambda$ в том же стиле, в котором представляется $scaleFactor$ в \ref{eq:delta_p_scaleFactor_2}.
+\begin{equation} \label{eq:xpbd-delta-lambda-2}
 	\delta \lambda = \frac{-\textbf{C}(x_i) - \frac{\alpha}{\delta t^2}\lambda_i}{\nabla \textbf{C}(x_i) \textbf{M}^{-1} \nabla \textbf{C}^T(x_i) + \frac{\alpha}{\delta t^2}}
 \end{equation}	
 	Данное выражение отличается от представленного  \ref{eq:delta_p_scaleFactor_2} тем, что в числителе появилось слагаемое $- \frac{\alpha}{\delta t^2}\lambda_i$, а в знаменателе $\frac{\alpha}{\delta t^2}$. Именно эти два слагаемых позволяют убрать физически некорректный параметр жесткости $k$ используемый в алгоритме PBD, и использовать вместо него физически корректный параметр жесткости, используя табличные значения, получаемые из реального мира. Заметим также, что оба вышеприведенных слагаемых так-же зависят от шага времени, а значит жесткость не будет зависеть от размера временного шага. Помимо этого, на каждой итерации алгоритма используется разное значение $\lambda_i$ что также нейтрализует зависимость жесткости от количества итераций. При этом, если рассмотреть ситуацию, при которой параметр жесткости равен бесконечности, то матрица $\alpha$ будет равна нулевой, и алгоритм XPBD превращается в алгоритм PBD.
