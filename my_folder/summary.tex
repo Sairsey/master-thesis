@@ -41,11 +41,11 @@
 %- выводы.
 
 
-Данная работа посвящена разработке и реализации эвристического алгоритма для улучшения сходимости метода Extended Position Based Dynaimics(XPBD) в задаче симуляции ткани. Данный эвристический алгоритм призван стабилизировать результат получаемый в ходе работы метода XPBD в случае резких и сильных изменений положения частиц ткани.
+Данная работа посвящена разработке и реализации эвристического алгоритма для улучшения сходимости метода Extended Position Based Dynaimics (XPBD) в задаче симуляции ткани. Данный эвристический алгоритм призван стабилизировать результат, получаемый в ходе работы метода XPBD в случае резких и сильных изменений положения частиц ткани.
 
 Для демонстрации разработанного алгоритма были созданы демонстрационные сцены, состоящие из различных трехмерных геометрических объектов, а также симулируемых тканей. Весь исходный код проекта написан на языке C++ с применением графической библиотеки DirectX 12. Средством для программирования шейдеров является язык HLSL.
 
-Наиболее значимым результатом является эвристический алгоритм, позволяющий избавиться от чрезмерных колебаний ткани, вызванных недостаточным количеством итераций алгоритма XPBD. В результате данных колебаний, поведение симулируемой ткани выглядит отлично от наблюдаемого в реальной жизни, и больше напоминает поведение резины. В ходе работы был реализован алгоритм XPBD выполняющийся на GPU, а также разработаны различные алгоритмы и методы, позволяющие ускорить работу алгоритма XPBD с учетом особенностей архитектуры GPU.
+Наиболее значимым результатом является эвристический алгоритм, позволяющий избавиться от чрезмерных колебаний ткани, вызванных недостаточным количеством итераций алгоритма XPBD. В результате данных колебаний, поведение симулируемой ткани выглядит отлично от наблюдаемого в реальной жизни, и больше напоминает поведение резины. В ходе работы был реализован алгоритм XPBD, выполняющийся на GPU, а также разработаны различные алгоритмы и методы, позволяющие ускорить работу алгоритма XPBD с учетом особенностей архитектуры GPU.
 
 Предложенный алгоритм может быть использован совместно с существующими системами симуляции тканей для более корректной визуализации в современных графических приложениях.
 
@@ -63,15 +63,15 @@
 %\noindent
 {\MakeUppercase{Keywords: \keywordsEn}.} % Ключевые слова из renames.tex 
 	
-The subject of the graduate qualification work is <<\thesisTitleEn>>.
+The subject of the master thesis is <<\thesisTitleEn>>.
 	
-This work is devoted to the development and implementation of a heuristic algorithm for improving the convergence of the Extended Position Based Dynamics (XPBD) method in the cloth simulation problem. This heuristic algorithm is designed to stabilize the result obtained during the XPBD method in the case of abrupt and strong changes in the position of cloth particles.
+This paper focuses on the development and implementation of a heuristic algorithm to improve the convergence of the Extended Position Based Dynamics (XPBD) method in cloth simulation. The algorithm is specifically designed to stabilize the results of the XPBD method in cases of sudden and significant changes in the position of cloth particles. 
 
-To demonstrate the developed algorithm, demo scenes were created consisting of various three-dimensional geometric objects, as well as simulated cloth. The entire source code of the project is written in C++ using the DirectX 12 graphics library. The shader programming language is HLSL.
+To demonstrate the effectiveness of the algorithm, various three-dimensional geometric objects and simulated cloth were used in demonstration scenes. The entire project was written in C++ using the DirectX 12 graphics library, with HLSL as the shader programming language. 
 
-The most significant result is a heuristic algorithm that allows you to get rid of excessive cloth vibrations caused by an insufficient number of iterations of the XPBD algorithm. As a result of these vibrations, the behavior of the simulated cloth looks different from that observed in real life, and is more reminiscent of the behavior of rubber. During the work, the XPBD algorithm running on the GPU was implemented, and various algorithms and methods were developed to speed up the XPBD algorithm, taking into account the features of the GPU architecture.
+The most significant result of this work is the heuristic algorithm, which effectively reduces excessive cloth vibrations caused by insufficient iterations of the XPBD algorithm. These vibrations can result in unrealistic behavior of the simulated cloth, resembling that of rubber rather than real cloth. Additionally, the XPBD algorithm was implemented on the GPU and various techniques were developed to optimize its performance, taking into account the GPU architecture. 
 
-The proposed algorithm can be used together with existing tissue simulation systems for more correct visualization in modern graphics applications.	
+This proposed algorithm can be integrated with existing cloth simulation systems to improve the accuracy of cloth visualization in modern graphics applications.
 %\abstractEn % Аннотация из renames.tex
 	
 
