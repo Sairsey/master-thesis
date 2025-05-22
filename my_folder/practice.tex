@@ -13,24 +13,6 @@
 
 %%% Распечатать версию документа / Print document version
 %%
-\begin{flushright}
-	%	\vspace{0pt plus0.1fill}
-	\boxed{\small
-		\begin{tabular}{r} 
-			\textbf{Пример отчета по практике <<SPbPU-student-thesis-template>>.} %\\ % перенос на новую строку
-			\textbf{Версия от \today % \; время:  \currenttime. % время версии
-			}
-		\end{tabular}
-	} %end boxed
-	%	\vspace*{-5pt} % раскомментировать, если не хватает места
-	\vspace{0pt plus0.1fill} % раскоментировать, если хватает места
-\end{flushright}
-
-
-
-
-
-
 % TODO Exact match of font size
 %{\centering%
 %	\footnotesize
@@ -82,8 +64,6 @@
 {\noindent {\bfseries Место прохождения практики:} {\expandafter \ulined \Workplace}.} % включая фактический адрес для практики в сторонней организации по договору
 
 
-{\noindent {\bfseries Сроки практики:} \uline{с \PracticeStartDate~по \PracticeEndDate.}}\par
-
 
 {\noindent {\bfseries Руководитель практики от \SPbPUOfficialShort:}} {\expandafter \ulined \SupervisorFull, \SupervisorJob, \SupervisorDegree.} %Ф.И.О., должность, степень
 
@@ -110,12 +90,14 @@
 %							&	& \ConsultantExtraTwo\\[\mfloatsep]
 	
 	Обучающийся				&	&\Author\\[\mfloatsep]
-	Дата: \uline{\PracticeEndDate}		&	&
 \end{tabularx} %
 
 
 %
 \vspace{0pt plus4fill}% 
 
+\begin{center}%
+	Санкт-Петербург --- \thesisYear\\
+\end{center}%
 \restoregeometry
 \newpage
